@@ -1,0 +1,152 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:testing-library/recommended",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
+    "eslint:recommended",
+    "react-app",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "sourceType": "module",
+    "tsconfigRootDir": "./src"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "jest-dom",
+    "testing-library",
+    "import",
+    "jsx-a11y",
+    "risxss"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/member-ordering": "error",
+    "@typescript-eslint/no-inferrable-types": "error",
+    "@typescript-eslint/prefer-for-of": "error",
+    "@typescript-eslint/unified-signatures": "error",
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/strict-boolean-expressions": "error",
+    "@typescript-eslint/ban-ts-comment": "error",
+    "dot-notation": "error",
+    "eqeqeq": [
+      "error",
+      "smart"
+    ],
+    "guard-for-in": "error",
+    "no-bitwise": "error",
+    "no-console": "error",
+    "no-eval": "error",
+    "no-invalid-this": "off",
+    "no-new-wrappers": "error",
+    "no-shadow": [
+      "error",
+      {
+        "hoist": "all"
+      }
+    ],
+    "no-throw-literal": "error",
+    "no-undef-init": "error",
+    "no-underscore-dangle": "error",
+    "object-shorthand": "error",
+    "prefer-const": "error",
+    "radix": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          [
+            "external",
+            "builtin"
+          ],
+          "internal",
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
+        ]
+      }
+    ],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": [
+          "none",
+          "all",
+          "multiple",
+          "single"
+        ]
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        // Lodash tree shaking isn"t working so directly importing lodash results in importing the whole library.
+        // This rule should prevent importing the whole lodash library.
+        // https://lodash.com/per-method-packages
+        "paths": [
+          {
+            "name": "lodash",
+            "message": "Please use lodash/{module} import instead"
+          }
+        ]
+      }
+    ],
+    "curly": [
+      "error",
+      "all"
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      }
+    ],
+    "react/no-string-refs": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    // Specific NextJS accessibility config
+    // Not necessary with NextJS links
+    "jsx-a11y/anchor-is-valid": "off",
+    // Add alt attributes to NextJS Images
+    "jsx-a11y/alt-text": [ 2, {
+      "img": ["Image"]
+    }],
+    "risxss/catch-potential-xss-react": "error"
+  }
+}
